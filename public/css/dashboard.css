@@ -1,0 +1,23 @@
+
+
+.landing {
+    height: calc(100vh - 56px);
+    background-image: linear-gradient(to right, #7dd0f1, #566fbb, #5457b0, #4a2c91);
+}
+
+.card-profile {
+    width: 20rem;
+    border-radius: 0.5rem;
+    background-color: #272841;
+}
+
+i {
+    font-size: 1.5rem;
+}
+ p {
+    color: white;
+}
+
+.landing .card-profile img {
+    border-radius: 50%;
+}

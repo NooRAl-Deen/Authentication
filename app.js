@@ -1,24 +1,47 @@
-const cookieParser = require('cookie-parser');
 const express = require('express');
-const { default: mongoose } = require('mongoose');
-const  path  = require('path');
+const  mongoose  = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
+const path  = require('path');
 const app = express();
+const connectDB = require('./config/db');
+
+require('./config/passport')(passport);
 
 // Include Routes
 const mainRoute = require('./routes/main.routes');
+const googleRoute = require('./routes/google.routes');
+
 
 // Public Dir
 const publicDir = path.join(__dirname ,'./public');
 app.use(express.static(publicDir));
 
+connectDB();
+
+app.use(session({
+    secret: 'secret key',
+    saveUninitialized: false,
+    resave: false,
+    store: new MongoStore({ mongooseConnection : mongoose.connection })
+}));
+
+
+
 // Set View Engine
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cookieParser());
 
-mongoose.connect(process.env.DB_CONNECT).then(()=>{console.log('DB Connected')}).catch((err) => {console.log(err)})
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 
 app.use('/', mainRoute);
+app.use('/auth', googleRoute);
 
 app.listen(5000);
