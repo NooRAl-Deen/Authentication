@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/css/landing.style.css">
+ 
 </head>
 <body>
-    <h2>Welcome To Our App</h2>
+    <div class="container">
+    <div class="first">
+        <div class="navbar">
+            <img src="/images/landing.images/logo.png" class="logo">
+            <nav>
+                <ul id="menuList">
+                    <li ><a href="">ABOUT</a></li>
+                    <li><a href="">PRODUCTS</a></li>
+                    <li><a href="">CONTACTS</a></li>
+                    <li><a href="">SERVICES</a></li>
+                    <li><a href="">LOGIN</a></li>
+                    
+                </ul>
+            </nav>
+            <img src="/images/landing.images/menu.png" class="menu-icon" onclick="togglemenu()">
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <h1>HELLO</h1>
+                <h1>THERE!</h1>
+                <button type="button">SIGNUP FOR FREE<img src="/images/landing.images/arrow.png"</button>
+            </div>
+            <div class="col-2">
+                <img src="/images/landing.images/landing-photo.png" class="pho">
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="/js/script.js"></script>
+
 </body>
 </html>
