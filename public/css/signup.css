@@ -1,0 +1,69 @@
+
+body{
+    background: #C9CCD5;
+    font-family: 'Nunito', sans-serif ;
+    
+}
+
+.section{
+    padding: 80px ;    
+}
+.form-wrap{
+    position: relative;
+    box-shadow: 10px 10px 10px #FFE3E3; 
+    background-image: linear-gradient(to right,#FFE3E3 ,#E4D8DC, #C9CCD5 , #93B5C6  );
+    border-radius: 20px;
+}
+#regform{
+    padding: 30px 50px 50px 30px;
+    
+}
+.form-heading{
+position: relative;
+top:20px;
+text-align:center;
+color: #555;
+}
+.btn-primary{
+    background-color:#93B5C6;
+    border: none;
+    border-radius: 15px;
+}
+.btn-primary:hover{
+    background-color: white;
+    color: black;
+}
+.form-group{
+    font-size: 17px;
+    color: rgb(92, 90, 90);
+
+    
+}
+.input{
+    border-color:gray ;
+    border-radius:20px;
+    font-weight: 280;
+    font: size 16px;
+    
+}
+ .input:focus{
+     font-weight: 450;
+
+}
+.icon{
+    font-size: 30px;
+    color: rgb(40, 40, 97);
+}
+#submit{
+    margin-left: 40%;
+}
+a {
+    color:rgb(36, 35, 35);
+}
+
+ a:hover{
+    color: rgb(97, 95, 95);
+} 
+.label{
+    font-size: 18px;
+}
