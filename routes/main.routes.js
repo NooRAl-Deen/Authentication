@@ -10,7 +10,8 @@ router.get('/login', mainController.login);
 router.get('/dashboard', checkAuth, mainController.dashboard);
 router.get('/logout', mainController.logout);
 router.get('/signup', mainController.signup);
-
+router.get('/changePassword',mainController.changePassword);
+router.get('/enterEmail',mainController.enterEmail);
 
 function checkAuth(req, res, next) {
     if(req.isAuthenticated()) {

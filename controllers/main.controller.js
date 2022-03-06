@@ -21,4 +21,12 @@ exports.signup = (req, res) => {
    res.render("signup")
 }
 
+exports.changePassword=(req, res) => {
+    res.render("changePassword")
+}
+
+exports.enterEmail=(req, res) => {
+    res.render("enterEmail")
+}
+
 

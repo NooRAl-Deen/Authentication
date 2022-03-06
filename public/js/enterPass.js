@@ -5,4 +5,7 @@ function matchPassword() {
     {	
         alert("Passwords did not match!");
     }
+    else{
+        window.location.replace('http://localhost:5000/login');
+    }
   }
