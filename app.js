@@ -11,7 +11,7 @@ require('./config/passport')(passport);
 
 // Include Routes
 const mainRoute = require('./routes/main.routes');
-const googleRoute = require('./routes/google.routes');
+const authRoute = require('./routes/auth.routes');
 
 
 // Public Dir
@@ -42,6 +42,6 @@ app.use(passport.session());
 
 
 app.use('/', mainRoute);
-app.use('/auth', googleRoute);
+app.use('/auth', authRoute);
 
 app.listen(5000);
