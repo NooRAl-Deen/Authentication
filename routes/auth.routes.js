@@ -10,4 +10,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
   res.redirect('/dashboard');
 });
 router.post('/signup',googleController.signup)
+router.get('/forgetpassword/enterphone',googleController.enterphone)
 module.exports = router;
+
+
