@@ -1,14 +1,8 @@
 const bcrypt = require('bcrypt');
-const { default: mongoose } = require('mongoose');
-const saltRounds = 10;
-
 const passport = require("passport");
 const User = require('../models/User');
-const conn = require('../config/db')
-
 module.exports.google = passport.authenticate('google', { scope: ['profile', 'email'] });
 module.exports.signup=async(req,res)=>{
-   
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = new User({
         name:req.body.name,
@@ -25,3 +19,4 @@ module.exports.signup=async(req,res)=>{
     user.save()
  return res.send('done')
 }
+module.exports.enterphone=(req,res)=>{res.render('enter-phone-number')}
