@@ -1,0 +1,51 @@
+body {
+
+    background-color: #C9CCD5;
+    font-family: 'Nunito', sans-serif;
+     
+   
+   }
+   
+   .container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    
+   
+   }
+   
+   input {
+     width: 300px;
+     padding: 6px;
+     border-radius: 10px;
+     border: 1px solid #ccc;
+     background-color: white;
+   }
+   
+   input::placeholder {
+     color:black;
+   
+   }
+   .hide{
+     display:none;
+   }
+   
+   .raaw{
+     background-image: linear-gradient(to right,#FFE3E3 ,#E4D8DC, #C9CCD5 , #93B5C6  );
+     border-radius: 30px;
+     height: 100vh;
+     box-shadow: 10px 10px 10px #FFE3E3; 
+   
+   }
+   .bb{
+     border: none;
+       outline: none;
+       background:#93B5C6;
+       color:white;   
+       border-radius: 10px;
+       font-weight: bold;
+   }
+   .bb:hover{
+     background-color: white;
+  border: none;
+   }
