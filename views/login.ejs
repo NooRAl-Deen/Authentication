@@ -29,16 +29,16 @@
                     <h1 class="font-weight-bold py-3"> Hello !</h1>
                     <h4> SIGN INTO YOUR ACCOUNT !</h4>
                 </div>
-                    <form>
+                    <form method="POST" action="/login">
                         <div class="form-row">
                             <div class="col-lg-7 ">
                                 <input type="email" placeholder="Enter email/phone number"
-                                    class="form-control my-3 p-3" required>
+                                    class="form-control my-3 p-3" required name="email">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7 ">
-                                <input type="password" placeholder="Enter password" class="form-control  my-3 p-3" required>
+                                <input type="password" name="password" placeholder="Enter password" class="form-control  my-3 p-3" required>
                                 <a href="/enterEmail">Forgot password </a>
                             </div>
                         </div>

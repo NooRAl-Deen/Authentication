@@ -5,7 +5,7 @@ module.exports.google = passport.authenticate('google', { scope: ['profile', 'em
 module.exports.signup=async(req,res)=>{
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = new User({
-        name:req.body.name,
+        displayName:req.body.name,
         email:req.body.email,
         password:hashedPassword
     })
@@ -17,6 +17,6 @@ module.exports.signup=async(req,res)=>{
     }
 
     user.save()
- return res.send('done')
+ return res.redirect('/login')
 }
 module.exports.enterphone=(req,res)=>{res.render('enter-phone-number')}

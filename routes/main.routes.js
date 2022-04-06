@@ -7,6 +7,7 @@ dotenv.config();
 
 router.get('/', mainController.main);
 router.get('/login', mainController.login);
+router.post('/login', mainController.loginPost);
 router.get('/dashboard', checkAuth, mainController.dashboard);
 router.get('/logout', mainController.logout);
 router.get('/signup', mainController.signup);
@@ -14,7 +15,7 @@ router.get('/changePassword',mainController.changePassword);
 router.get('/enterEmail',mainController.enterEmail);
 
 function checkAuth(req, res, next) {
-    if(req.isAuthenticated()) {
+    if(req.isAuthenticated() || req.session.user) {
         return next();
     } else {
         res.redirect('/login');
