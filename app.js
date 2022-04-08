@@ -7,7 +7,7 @@ const path  = require('path');
 const app = express();
 const connectDB = require('./config/db');
 
-require('./config/passport')(passport);
+require('./config/passport');
 
 // Include Routes
 const mainRoute = require('./routes/main.routes');

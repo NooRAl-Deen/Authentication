@@ -1,20 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userGoogleSchema = new Schema({
-    googleId: {
+const socialSchema = new Schema({
+    socialId: {
         type: String,
         required: true
     },
     displayName: {
-        type: String,
-        required: true
-    },
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
         type: String,
         required: true
     },
@@ -31,4 +23,4 @@ const userGoogleSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Usergoogle', userGoogleSchema);
+module.exports = mongoose.model('UserSocial', socialSchema);

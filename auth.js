@@ -7,7 +7,6 @@ const sendEmail=require('../utils/sendEmail');
 const Joi= require('joi');
 const crypto =require('crypto');
 const express=require('express');
-const router=express.Router();
 const nodemailer=require('nodemailer');
 const { buffer } = require("stream/consumers");
 
@@ -39,3 +38,4 @@ crypto.randomBytes(32,(err,buffer)=>{
 
 
 });
+})

@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const passport = require("passport");
 const User = require('../models/User');
 module.exports.google = passport.authenticate('google', { scope: ['profile', 'email'] });
+module.exports.facebook = passport.authenticate('facebook', { scope: ['public_profile', 'email'] });
 module.exports.signup=async(req,res)=>{
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = new User({

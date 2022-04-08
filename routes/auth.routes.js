@@ -1,15 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const googleController = require('../controllers/google.controller');
+const authController = require('../controllers/auth.controller');
 const passport = require("passport");
 
-router.get('/google', googleController.google);
+router.get('/google', authController.google);
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),
 (req, res) => {
   res.redirect('/dashboard');
 });
-router.post('/signup',googleController.signup)
-router.get('/forgetpassword/enterphone',googleController.enterphone)
+
+router.get('/facebook', authController.facebook);
+router.get('/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
+(req, res) => {
+  res.redirect('/dashboard');
+});
+
+router.post('/signup',authController.signup)
+router.get('/forgetpassword/enterphone',authController.enterphone)
 module.exports = router;
 
 
