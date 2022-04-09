@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+/*************************/
+const sendEmail = require('../config/nodeMail');
 // Main Controller
 exports.main = (req, res) => {
     res.render('index');
@@ -47,6 +49,24 @@ exports.changePassword=(req, res) => {
 
 exports.enterEmail=(req, res) => {
     res.render("enterEmail")
+}
+
+exports.codeVerification = (req, res) => {
+    res.send('sent');
+}
+
+
+/************************************************************************************/
+exports.enterEmailPost = async(req, res) => {
+    console.log(req.body.email);
+    let user = await User.findOne({email: req.body.email});
+    if(user) {
+        sendEmail(user);
+        res.redirect('/changePassword');
+    } else {
+        res.redirect('/login')
+        console.log('user not exist');
+    }
 }
 
 

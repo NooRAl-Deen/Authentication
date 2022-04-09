@@ -21,9 +21,12 @@
             and we'll send you a verification code to reset your password.
         </p>
         <br>
-        <h3>Email</h3>
-        <input type="email" placeholder="Please enter your email"id="address"><br>
-        <button type="button" onclick="ValidateEmail()">Continue</button>
+        <form method="POST" action="/enterEmail">
+            <h3>Email</h3>
+            <input type="email" placeholder="Please enter your email"id="address" name="email"><br>
+            <button onclick="ValidateEmail()">Continue</button>
+        </form>
+        
        </div>
        <div class="footer">
            <h3>Don't have an account?</h3>

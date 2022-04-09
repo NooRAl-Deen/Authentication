@@ -13,6 +13,8 @@ router.get('/logout', mainController.logout);
 router.get('/signup', mainController.signup);
 router.get('/changePassword',mainController.changePassword);
 router.get('/enterEmail',mainController.enterEmail);
+router.post('/enterEmail',mainController.enterEmailPost);
+router.post('/code_verification',mainController.codeVerification);
 
 function checkAuth(req, res, next) {
     if(req.isAuthenticated() || req.session.user) {
