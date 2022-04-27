@@ -8,6 +8,10 @@ const userSchema = new Schema({
     image: {
         type: String,
         default: '/images/download.png'
+    },
+    resetLink: {
+        data: String,
+        default: ''
     }
 })
 

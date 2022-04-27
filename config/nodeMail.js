@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const sendEmail = (user) => {
+const sendEmail = (user, token) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -15,7 +15,10 @@ const sendEmail = (user) => {
         from: process.env.AUTH_USER_EMAIL,
         to: user.email,
         subject: 'Reset Your Password',
-        text: `Hello ${user.displayName}`
+        html: `
+          <h2>Hello ${user.displayName}</h2>
+          <p>Click here to reset your password <a href='${process.env.CLIENT_URL}/changePassword/${token}'>link</a></p>
+        `
       };
       
       transporter.sendMail(mailOptions, function(error, info){

@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 /*************************/
 const sendEmail = require('../config/nodeMail');
+const jwt = require('jsonwebtoken');
 // Main Controller
 exports.main = (req, res) => {
     res.render('index');
@@ -22,7 +23,8 @@ exports.loginPost = async(req, res, next) => {
             res.redirect('/dashboard')
             
         } else {
-            console.log('does not match');
+            res.redirect('/login');
+            console.log('password does not match');
         }
     } else {
         res.redirect('/login');
@@ -44,28 +46,41 @@ exports.signup = (req, res) => {
 }
 
 exports.changePassword=(req, res) => {
-    res.render("changePassword")
+    let tok = req.params.token
+    res.render("changePassword", {tok})
 }
 
 exports.enterEmail=(req, res) => {
     res.render("enterEmail")
 }
 
-exports.codeVerification = (req, res) => {
-    res.send('sent');
+
+exports.verify = (req, res) => {
+    res.render('verification');
 }
 
 
 /************************************************************************************/
 exports.enterEmailPost = async(req, res) => {
-    console.log(req.body.email);
-    let user = await User.findOne({email: req.body.email});
+    const re_email = req.body.email;
+    let token = jwt.sign({ re_email }, process.env.JWT_TOKEN, {expiresIn: '15m'});
+    let user = await User.findOneAndUpdate({email: re_email}, {$set:{resetLink: token}});
+    
     if(user) {
-        sendEmail(user);
-        res.redirect('/changePassword');
+        sendEmail(user, token);
+        res.redirect('/');
     } else {
         res.redirect('/login')
-        console.log('user not exist');
+    }
+}
+
+exports.changePasswordPut = async(req, res) => {
+    const newPassword = req.body.password;
+    const hash = await bcrypt.hash(newPassword, 10);
+    let user = await User.findOneAndUpdate({resetLink: req.body.tok}, {$set:{password: hash}});
+    if(user)
+    {
+        res.redirect('/login')
     }
 }
 
