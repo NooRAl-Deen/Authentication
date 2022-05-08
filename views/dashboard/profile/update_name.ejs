@@ -1,0 +1,33 @@
+<%- include('../partials/dashboard_header') %>
+<div class="container">
+  <form method="POST" action="/dashboard/profile/update_name">
+    <h2>Update Name</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">Old Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="<%= user.displayName %>"
+            id="first"
+            readonly
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--  row   -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="last">New Name</label>
+          <input type="text" class="form-control" placeholder="" id="last" name="new_name" />
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<%- include('../partials/dashboard_footer') %>

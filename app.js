@@ -12,7 +12,7 @@ require('./config/passport');
 // Include Routes
 const mainRoute = require('./routes/main.routes');
 const authRoute = require('./routes/auth.routes');
-
+const dashboardRoute = require('./routes/dashboard.routes')
 
 // Public Dir
 const publicDir = path.join(__dirname ,'./public');
@@ -43,5 +43,6 @@ app.use(passport.session());
 
 app.use('/', mainRoute);
 app.use('/auth', authRoute);
+app.use('/dashboard', dashboardRoute);
 
 app.listen(5000);

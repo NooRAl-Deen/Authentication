@@ -12,6 +12,10 @@ const userSchema = new Schema({
     resetLink: {
         data: String,
         default: ''
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 })
 
