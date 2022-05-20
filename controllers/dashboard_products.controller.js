@@ -31,3 +31,30 @@ exports.productListRender = (req, res) => {
     Product.find().then((data) => res.render('dashboard/products/product_list', {user: user, data: data}))
     
 }
+
+
+exports.updateProductRender = async (req, res) => {
+    let user = req.user ? req.user : req.session.user;
+    console.log(req.params.id);
+    let product = await Product.findOne({ _id: req.params.id });
+    res.render('dashboard/products/update_product', {user: user, product: product});
+}
+
+
+exports.updateProduct = async (req, res) => {
+    await Product.findByIdAndUpdate({ _id: req.body.id }, {$set: {
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        code: req.body.code,
+        image: req.file.filename
+    }})
+    res.redirect('/dashboard/products/product_list')
+}
+
+exports.deleteProduct = async (req, res) => {
+    await Product.findByIdAndDelete({ _id: req.params.id });
+    res.redirect('/dashboard/products/product_list')
+}

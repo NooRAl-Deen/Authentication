@@ -1,4 +1,5 @@
 <%- include('../partials/dashboard_header') %>
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -21,14 +22,31 @@
                 <td><%= data[i].quantity %></td>
                 <td><%= data[i].price %></td>
                 <td>
-                    <a href="#" class="btn border-shadow update">
-                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                    <a href="/dashboard/products/product_list/<%= data[i]._id %>" class="btn btn-secondary">
+                        Update
                     </a>
-                    <a class="btn border-shadow delete" data-id="" >
-                        <span class="text-gradient"><i class="fas fa-times"></i></span>
-                    </a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                    </button>
                 </td>
             </tr>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <a href="/dashboard/products/product_list/delete/<%= data[i]._id %>" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
         <% } %>
       </tbody>
 </table>
