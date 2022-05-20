@@ -1,0 +1,115 @@
+<%- include('../partials/dashboard_header') %>
+<div class="container">
+  <form method="POST" action="/dashboard/products/add_new_product" enctype="multipart/form-data">
+    <h2>Add New Product</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">Code</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter product code"
+            id="first"
+            name="code"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter product name"
+            id="first"
+            name="name"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--  row   -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="form-floating">
+            <label for="floatingTextarea2">Description</label>
+            <textarea
+              class="form-control"
+              placeholder="Description about product"
+              id="floatingTextarea2"
+              style="height: 100px"
+              name="description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Product Image</label>
+            <input class="form-control" type="file" id="formFile" name="image"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="form-floating">
+            <label for="exampleInputEmail1">Category</label>
+            <select name="category" class="custom-select custom-select-sm">
+              <option value="" selected>Category</option>
+              <option value="1" >Houseware</option>
+              <option value="2" >Cosmetics</option>
+              <option value="3" >School Tools</option>
+              <option value="4" >Accessories</option>
+              <option value="5" >Electronics</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter product price"
+            id="price"
+            name="price"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Enter product quantity"
+            id="quantity"
+            name="quantity"
+          />
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<%- include('../partials/dashboard_footer') %>

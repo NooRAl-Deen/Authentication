@@ -1,0 +1,36 @@
+<%- include('../partials/dashboard_header') %>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">Code</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Category</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].code %></td>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].description %></td>
+                <td><%= data[i].category %></td>
+                <td><%= data[i].quantity %></td>
+                <td><%= data[i].price %></td>
+                <td>
+                    <a href="#" class="btn border-shadow update">
+                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                    </a>
+                    <a class="btn border-shadow delete" data-id="" >
+                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+      </tbody>
+</table>
+
+<%- include('../partials/dashboard_footer') %>
