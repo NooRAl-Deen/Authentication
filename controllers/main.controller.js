@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken');
 
 // Main Controller
 exports.main = (req, res) => {
-    res.render('index');
+    let user = req.user ? req.user : req.session.user;
+    res.render('index', {user});
 }
 
 // Login Controller

@@ -1,5 +1,5 @@
 <%- include('../partials/dashboard_header') %>
-
+<a href="/dashboard/products/add_new_product" class="btn btn-primary mb-3">add new product</a>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -23,10 +23,10 @@
                 <td><%= data[i].price %></td>
                 <td>
                     <a href="/dashboard/products/product_list/<%= data[i]._id %>" class="btn btn-secondary">
-                        Update
+                      Update
                     </a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Delete
+                      Delete
                     </button>
                 </td>
             </tr>
