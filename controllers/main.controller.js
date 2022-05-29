@@ -1,8 +1,10 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const Product = require('../models/Product');
 /*************************/
 const sendEmail = require('../config/nodeMail');
 const jwt = require('jsonwebtoken');
+
 // Main Controller
 exports.main = (req, res) => {
     res.render('index');
@@ -59,6 +61,15 @@ exports.verify = (req, res) => {
     res.render('verification');
 }
 
+exports.productDetail = async(req, res) => {
+    let id=req.params.id;
+    let product=await Product.findById(id)
+    res.render('productDetail',{product});
+}
+
+exports.product = (req, res) => {
+    res.render('PopularProducts');
+}
 
 /************************************************************************************/
 exports.enterEmailPost = async(req, res) => {
@@ -82,6 +93,10 @@ exports.changePasswordPut = async(req, res) => {
     {
         res.redirect('/login')
     }
+}
+
+exports.productF=async(req,res)=>{
+    await Product.find().then((data) => res.render('PopularProducts', { productList: data}))
 }
 
 

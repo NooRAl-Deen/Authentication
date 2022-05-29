@@ -15,6 +15,8 @@ router.post('/changePassword', mainController.changePasswordPut);
 router.get('/enterEmail',mainController.enterEmail);
 router.post('/enterEmail',mainController.enterEmailPost);
 router.get('/veri', mainController.verify);
+router.get('/productDetail/:id', mainController.productDetail);
+router.get('/PopularProducts', mainController.productF);
 
 
 
