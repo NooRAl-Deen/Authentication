@@ -300,6 +300,158 @@ body{
 .product-deatil .message-text {
     width: calc(100% - 70px)
 }
+.product-quantity-box input,
+.product-quantity-box label {
+    touch-action: manipulation
+}
+
+.product-quantity-box input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+.product-quantity-box  input {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+	    line-height: normal;
+}
+
+.product-quantity-box input[type="number"] {
+    display: block;
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 10px;
+    margin: 0;
+    line-height: 22px;
+    border: 1px solid #cccccc;
+    outline: none;
+    background: #fff;
+    color: #5f6a7d;
+    font-size: 13px;
+    margin-bottom: 15px;
+    -webkit-appearance: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+@media (max-width: 480px) {
+    .product-quantity-box input[type="number"] {
+        font-size:16px
+    }
+}
+
+.product-quantity-box input[type="number"]:active,
+.product-quantity-box input[type="number"]:focus {
+    border: 1px solid #aaa;
+    color: #444
+}
+
+.product-quantity-box input[type=number]::-webkit-outer-spin-button,
+.product-quantity-box input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.product-quantity-box input[type=number] {
+    -moz-appearance: textfield
+}
+
+.product-quantity-box label {
+    display: block;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 5px;
+    text-transform: uppercase
+}
+
+.product-quantity-box input.quantity {
+    width: 48px;
+    display: inline;
+    margin-bottom: 0;
+    padding: 8px 5px
+}
+
+.product-quantity-box .quantity,.product-quantity-box .quantity:focus,.product-quantity-box .product-plus,.product-quantity-box .product-minus {
+    border: #e2e2e2 1px solid;
+    color: #000
+}
+
+.product-quantity-box label {
+    margin-bottom: 0.3em
+}
+
+.product-quantity-box {
+    margin-right: 0;
+    width: 120px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.product-quantity-box label {
+    text-align: left
+}
+
+.product-quantity-box .quantity {
+    text-align: center;
+    padding: 6px 15px;
+    width: 50%;
+    height: 42px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    float: left
+}
+
+.product-quantity-box .product-plus,.product-quantity-box .product-minus {
+    background: #f2f2f2;
+    font-weight: 300;
+    position: relative;
+    cursor: pointer;
+    height: 42px;
+    display: block;
+    width: 25%;
+    text-align: center;
+    float: left
+}
+
+.product-quantity-box .product-plus:hover,.product-quantity-box .product-minus:hover {
+    background: #d9d9d9
+}
+
+@media (max-width: 798px) {
+    .product-quantity-box .product-plus,.product-quantity-box .product-minus {
+        display:inline;
+        display: initial;
+        margin: 0
+    }
+}
+
+.product-quantity-box .product-plus {
+    border-left: 0;
+    font-size: 16px;
+    line-height: 42px
+}
+
+.product-quantity-box .product-minus {
+    border-right: 0;
+    line-height: 42px;
+    font-size: 18px
+}
+
+.product-quantity-box svg{
+	fill: #b5b5b5;
+	width: 17px;
+	height: 17px;
+	position: relative;
+	top: 2px;
+}
 
 @media only screen and (min-width:1024px) {
     .product-content div[class*=col-md-4] {
