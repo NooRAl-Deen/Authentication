@@ -22,18 +22,28 @@
                     <li><a href="">PRODUCTS</a></li>
                     <li><a href="">CONTACTS</a></li>
                     <li><a href="">SERVICES</a></li>
-                    <li><a href="/login">LOGIN</a></li>
                     
+                    <% if(user) { %>
+                        <li><a href="/dashboard">PROFILE</a></li>
+                    <% } else { %>
+                        <li><a href="/login">LOGIN</a></li>
+                    <% } %>
                 </ul>
             </nav>
             <img src="/images/landing.images/menu.png" class="menu-icon" onclick="togglemenu()">
+            
+            
         </div>
         <div class="row">
             <div class="col-1">
                 <h1>HELLO</h1>
                 <h1>THERE!</h1>
-                <a href="/signup">
-                <button type="button">SIGNUP FOR FREE<img src="/images/landing.images/arrow.png"></button></a>
+                <% if(user == null) { %>
+                    <a href="/signup">
+                    <button type="button">SIGNUP FOR FREE<img src="/images/landing.images/arrow.png"></button></a>
+                <% } %>
+                
+                
             </div>
             <div class="col-2">
                 <img src="/images/landing.images/landing-photo.png" class="pho">
